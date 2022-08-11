@@ -1,4 +1,4 @@
-module github.com/ymzuiku/w
+module github.com/ymzuiku/bom
 
 go 1.18
 
@@ -12,6 +12,7 @@ require (
 )
 
 require (
+	github.com/evanw/esbuild v0.15.1 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect

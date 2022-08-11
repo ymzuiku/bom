@@ -20,6 +20,14 @@ func (ev *Element) TextContent(text string) {
 	ev.Set("textContent", text)
 }
 
+func (ev *Element) ClassName(text string) {
+	ev.Set("className", text)
+}
+
+func (ev *Element) GetClassName() string {
+	return ev.Get("className").String()
+}
+
 func (ev *Element) GetTextContent(text string) string {
 	return ev.Get("textContent").String()
 }

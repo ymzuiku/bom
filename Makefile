@@ -3,19 +3,20 @@ j := public/files/
 
 dev:
 	go run example/serve/main.go
-wasm_prod:
+wasm-prod:
 	GOARCH=wasm GOOS=js go build -ldflags '-w -s' -o $(p) example/client/main.go
 	wasm-opt -Oz -o ${p}.opt ${p}
 	du -sh $(p).opt
 	gzip -5 -f -k $(p).opt && du -sh $(p).gz
 wasm:
 	GOARCH=wasm GOOS=js go build -ldflags '-w -s' -o $(p) example/client/main.go
-js:
-	gopherjs build public/files/gopherjs example/client/main.go -w
+build-js:
+	gopherjs build example/client/main.go
+	esbuild main.js --bundle --outfile=out.js --minify
 ser:
 	echo "serve-run"
 tailwind:
-	tailwindcss -i ./tailwind.css -o ./public/files/index.css --watch
+	tailwindcss -i ./tailwind.css -o ./public/tailwind.css --watch
 build-client:
 	echo "build-client"
 build-serve:
